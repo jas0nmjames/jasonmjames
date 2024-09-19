@@ -1,0 +1,46 @@
+current directory: /Users/jasonjames/repositories/jas0nmjames/jas0nmjames.github.io/vendor/bundle/ruby/3.3.0/gems/io-event-1.1.6/ext
+/Users/jasonjames/.rubies/ruby-3.3.5/bin/ruby extconf.rb
+checking for rb_ext_ractor_safe()... yes
+checking for &rb_fiber_transfer()... yes
+checking for -luring... no
+checking for sys/epoll.h... no
+checking for EV_UDATA_SPECIFIC in sys/event.h... yes
+checking for sys/event.h... yes
+checking for sys/eventfd.h... no
+checking for rb_io_descriptor()... yes
+checking for &rb_process_status_wait()... yes
+checking for rb_fiber_current()... yes
+checking for &rb_fiber_raise()... yes
+checking for ruby/io/buffer.h... yes
+creating extconf.h
+creating Makefile
+
+current directory: /Users/jasonjames/repositories/jas0nmjames/jas0nmjames.github.io/vendor/bundle/ruby/3.3.0/gems/io-event-1.1.6/ext
+make DESTDIR\= sitearchdir\=./.gem.20240919-43600-m9rtcy sitelibdir\=./.gem.20240919-43600-m9rtcy clean
+
+current directory: /Users/jasonjames/repositories/jas0nmjames/jas0nmjames.github.io/vendor/bundle/ruby/3.3.0/gems/io-event-1.1.6/ext
+make DESTDIR\= sitearchdir\=./.gem.20240919-43600-m9rtcy sitelibdir\=./.gem.20240919-43600-m9rtcy
+compiling ./io/event/event.c
+./io/event/event.c:39:24: warning: passing arguments to 'Init_IO_Event_Selector' without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+   39 |         Init_IO_Event_Selector(IO_Event_Selector);
+      |                               ^
+1 warning generated.
+compiling ./io/event/selector/selector.c
+In file included from ./io/event/selector/selector.c:21:
+./io/event/selector/selector.h:46:6: warning: a function declaration without a prototype is deprecated in all versions of C and is treated as a zero-parameter prototype in C2x, conflicting with a subsequent definition [-Wdeprecated-non-prototype]
+   46 | void Init_IO_Event_Selector();
+      |      ^
+./io/event/selector/selector.c:142:6: note: conflicting prototype is here
+  142 | void Init_IO_Event_Selector(VALUE IO_Event_Selector) {
+      |      ^
+1 warning generated.
+compiling ./io/event/selector/kqueue.c
+compiling ./io/event/interrupt.c
+linking shared-object IO_Event.bundle
+
+current directory: /Users/jasonjames/repositories/jas0nmjames/jas0nmjames.github.io/vendor/bundle/ruby/3.3.0/gems/io-event-1.1.6/ext
+make DESTDIR\= sitearchdir\=./.gem.20240919-43600-m9rtcy sitelibdir\=./.gem.20240919-43600-m9rtcy install
+/usr/bin/install -c -m 0755 IO_Event.bundle ./.gem.20240919-43600-m9rtcy
+
+current directory: /Users/jasonjames/repositories/jas0nmjames/jas0nmjames.github.io/vendor/bundle/ruby/3.3.0/gems/io-event-1.1.6/ext
+make DESTDIR\= sitearchdir\=./.gem.20240919-43600-m9rtcy sitelibdir\=./.gem.20240919-43600-m9rtcy clean
