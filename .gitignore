@@ -6,3 +6,6 @@ writing/.DS_Store
 
 # ignore jekyll's site pages
 _site/
+
+# remove bundles from repo
+/vendor/bundle
