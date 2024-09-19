@@ -1,0 +1,344 @@
+have_func: checking for rb_ext_ractor_safe()... -------------------- yes
+
+DYLD_LIBRARY_PATH=.:/Users/jasonjames/.rubies/ruby-3.3.5/lib "clang -o conftest -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/arm64-darwin23 -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/ruby/backward -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0 -I. -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/gdbm/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef -pipe -Wall -Wno-unknown-pragmas -std=c99 conftest.c  -L. -L/Users/jasonjames/.rubies/ruby-3.3.5/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib -L. -fstack-protector-strong -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib  -arch arm64   -lruby.3.3-static -framework CoreFoundation -ldl -lobjc -lpthread   -lpthread  "
+ld: warning: ignoring duplicate libraries: '-lpthread'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+DYLD_LIBRARY_PATH=.:/Users/jasonjames/.rubies/ruby-3.3.5/lib "clang -o conftest -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/arm64-darwin23 -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/ruby/backward -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0 -I. -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/gdbm/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef -pipe -Wall -Wno-unknown-pragmas -std=c99 conftest.c  -L. -L/Users/jasonjames/.rubies/ruby-3.3.5/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib -L. -fstack-protector-strong -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib  -arch arm64   -lruby.3.3-static -framework CoreFoundation -ldl -lobjc -lpthread   -lpthread  "
+ld: warning: ignoring duplicate libraries: '-lpthread'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_ext_ractor_safe; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for &rb_fiber_transfer()... -------------------- yes
+
+DYLD_LIBRARY_PATH=.:/Users/jasonjames/.rubies/ruby-3.3.5/lib "clang -o conftest -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/arm64-darwin23 -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/ruby/backward -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0 -I. -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/gdbm/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef -pipe -Wall -Wno-unknown-pragmas -std=c99 conftest.c  -L. -L/Users/jasonjames/.rubies/ruby-3.3.5/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib -L. -fstack-protector-strong -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib  -arch arm64   -lruby.3.3-static -framework CoreFoundation -ldl -lobjc -lpthread   -lpthread  "
+ld: warning: ignoring duplicate libraries: '-lpthread'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { const volatile void *volatile p; p = (const volatile void *)&rb_fiber_transfer; return !p; }
+/* end */
+
+--------------------
+
+have_library: checking for -luring... -------------------- no
+
+DYLD_LIBRARY_PATH=.:/Users/jasonjames/.rubies/ruby-3.3.5/lib "clang -o conftest -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/arm64-darwin23 -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/ruby/backward -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0 -I. -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/gdbm/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef -pipe -Wall -Wno-unknown-pragmas -std=c99 conftest.c  -L. -L/Users/jasonjames/.rubies/ruby-3.3.5/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib -L. -fstack-protector-strong -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib  -arch arm64   -lruby.3.3-static -framework CoreFoundation -ldl -lobjc -lpthread  -luring  -lpthread  "
+ld: warning: ignoring duplicate libraries: '-lpthread'
+ld: library 'uring' not found
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: 
+15: int t(void) { ; return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for sys/epoll.h... -------------------- no
+
+DYLD_LIBRARY_PATH=.:/Users/jasonjames/.rubies/ruby-3.3.5/lib "clang -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/arm64-darwin23 -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/ruby/backward -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0 -I. -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/gdbm/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef -pipe -Wall -Wno-unknown-pragmas -std=c99 -arch arm64  -c conftest.c"
+conftest.c:3:10: fatal error: 'sys/epoll.h' file not found
+    3 | #include <sys/epoll.h>
+      |          ^~~~~~~~~~~~~
+1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/epoll.h>
+/* end */
+
+--------------------
+
+have_header: checking for sys/event.h... -------------------- yes
+
+DYLD_LIBRARY_PATH=.:/Users/jasonjames/.rubies/ruby-3.3.5/lib "clang -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/arm64-darwin23 -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/ruby/backward -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0 -I. -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/gdbm/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef -pipe -Wall -Wno-unknown-pragmas -std=c99 -arch arm64  -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/event.h>
+/* end */
+
+--------------------
+
+have_header: checking for sys/wait.h... -------------------- yes
+
+DYLD_LIBRARY_PATH=.:/Users/jasonjames/.rubies/ruby-3.3.5/lib "clang -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/arm64-darwin23 -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/ruby/backward -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0 -I. -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/gdbm/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef -pipe -Wall -Wno-unknown-pragmas -std=c99 -arch arm64  -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/wait.h>
+/* end */
+
+--------------------
+
+have_header: checking for sys/eventfd.h... -------------------- no
+
+DYLD_LIBRARY_PATH=.:/Users/jasonjames/.rubies/ruby-3.3.5/lib "clang -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/arm64-darwin23 -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/ruby/backward -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0 -I. -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/gdbm/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef -pipe -Wall -Wno-unknown-pragmas -std=c99 -arch arm64  -c conftest.c"
+conftest.c:3:10: fatal error: 'sys/eventfd.h' file not found
+    3 | #include <sys/eventfd.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/eventfd.h>
+/* end */
+
+--------------------
+
+have_func: checking for rb_io_descriptor()... -------------------- yes
+
+DYLD_LIBRARY_PATH=.:/Users/jasonjames/.rubies/ruby-3.3.5/lib "clang -o conftest -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/arm64-darwin23 -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/ruby/backward -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0 -I. -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/gdbm/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef -pipe -Wall -Wno-unknown-pragmas -std=c99 conftest.c  -L. -L/Users/jasonjames/.rubies/ruby-3.3.5/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib -L. -fstack-protector-strong -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib  -arch arm64   -lruby.3.3-static -framework CoreFoundation -ldl -lobjc -lpthread   -lpthread  "
+conftest.c:14:57: error: use of undeclared identifier 'rb_io_descriptor'
+   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_io_descriptor; return !p; }
+      |                                                         ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_io_descriptor; return !p; }
+/* end */
+
+DYLD_LIBRARY_PATH=.:/Users/jasonjames/.rubies/ruby-3.3.5/lib "clang -o conftest -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/arm64-darwin23 -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/ruby/backward -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0 -I. -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/gdbm/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef -pipe -Wall -Wno-unknown-pragmas -std=c99 conftest.c  -L. -L/Users/jasonjames/.rubies/ruby-3.3.5/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib -L. -fstack-protector-strong -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib  -arch arm64   -lruby.3.3-static -framework CoreFoundation -ldl -lobjc -lpthread   -lpthread  "
+ld: warning: ignoring duplicate libraries: '-lpthread'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void rb_io_descriptor();
+15: int t(void) { rb_io_descriptor(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for &rb_process_status_wait()... -------------------- yes
+
+DYLD_LIBRARY_PATH=.:/Users/jasonjames/.rubies/ruby-3.3.5/lib "clang -o conftest -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/arm64-darwin23 -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/ruby/backward -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0 -I. -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/gdbm/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef -pipe -Wall -Wno-unknown-pragmas -std=c99 conftest.c  -L. -L/Users/jasonjames/.rubies/ruby-3.3.5/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib -L. -fstack-protector-strong -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib  -arch arm64   -lruby.3.3-static -framework CoreFoundation -ldl -lobjc -lpthread   -lpthread  "
+ld: warning: ignoring duplicate libraries: '-lpthread'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { const volatile void *volatile p; p = (const volatile void *)&rb_process_status_wait; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_fiber_current()... -------------------- yes
+
+DYLD_LIBRARY_PATH=.:/Users/jasonjames/.rubies/ruby-3.3.5/lib "clang -o conftest -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/arm64-darwin23 -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/ruby/backward -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0 -I. -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/gdbm/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef -pipe -Wall -Wno-unknown-pragmas -std=c99 conftest.c  -L. -L/Users/jasonjames/.rubies/ruby-3.3.5/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib -L. -fstack-protector-strong -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib  -arch arm64   -lruby.3.3-static -framework CoreFoundation -ldl -lobjc -lpthread   -lpthread  "
+ld: warning: ignoring duplicate libraries: '-lpthread'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_fiber_current; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for &rb_fiber_raise()... -------------------- yes
+
+DYLD_LIBRARY_PATH=.:/Users/jasonjames/.rubies/ruby-3.3.5/lib "clang -o conftest -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/arm64-darwin23 -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/ruby/backward -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0 -I. -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/gdbm/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef -pipe -Wall -Wno-unknown-pragmas -std=c99 conftest.c  -L. -L/Users/jasonjames/.rubies/ruby-3.3.5/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib -L. -fstack-protector-strong -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib  -arch arm64   -lruby.3.3-static -framework CoreFoundation -ldl -lobjc -lpthread   -lpthread  "
+ld: warning: ignoring duplicate libraries: '-lpthread'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { const volatile void *volatile p; p = (const volatile void *)&rb_fiber_raise; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for epoll_pwait2()... -------------------- no
+
+DYLD_LIBRARY_PATH=.:/Users/jasonjames/.rubies/ruby-3.3.5/lib "clang -o conftest -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/arm64-darwin23 -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/ruby/backward -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0 -I. -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/gdbm/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef -pipe -Wall -Wno-unknown-pragmas -std=c99 conftest.c  -L. -L/Users/jasonjames/.rubies/ruby-3.3.5/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib -L. -fstack-protector-strong -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib  -arch arm64   -lruby.3.3-static -framework CoreFoundation -ldl -lobjc -lpthread   -lpthread  "
+conftest.c:14:57: error: use of undeclared identifier 'epoll_pwait2'
+   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))epoll_pwait2; return !p; }
+      |                                                         ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))epoll_pwait2; return !p; }
+/* end */
+
+DYLD_LIBRARY_PATH=.:/Users/jasonjames/.rubies/ruby-3.3.5/lib "clang -o conftest -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/arm64-darwin23 -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/ruby/backward -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0 -I. -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/gdbm/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef -pipe -Wall -Wno-unknown-pragmas -std=c99 conftest.c  -L. -L/Users/jasonjames/.rubies/ruby-3.3.5/lib -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib -L. -fstack-protector-strong -L/opt/homebrew/opt/readline/lib -L/opt/homebrew/opt/libyaml/lib -L/opt/homebrew/opt/gdbm/lib  -arch arm64   -lruby.3.3-static -framework CoreFoundation -ldl -lobjc -lpthread   -lpthread  "
+ld: warning: ignoring duplicate libraries: '-lpthread'
+Undefined symbols for architecture arm64:
+  "_epoll_pwait2", referenced from:
+      _t in conftest-a85024.o
+ld: symbol(s) not found for architecture arm64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void epoll_pwait2();
+15: int t(void) { epoll_pwait2(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for ruby/io/buffer.h... -------------------- yes
+
+DYLD_LIBRARY_PATH=.:/Users/jasonjames/.rubies/ruby-3.3.5/lib "clang -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/arm64-darwin23 -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0/ruby/backward -I/Users/jasonjames/.rubies/ruby-3.3.5/include/ruby-3.3.0 -I. -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/libyaml/include -I/opt/homebrew/opt/gdbm/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef -pipe -Wall -Wno-unknown-pragmas -std=c99 -arch arm64  -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ruby/io/buffer.h>
+/* end */
+
+--------------------
+
+extconf.h is:
+/* begin */
+ 1: #ifndef EXTCONF_H
+ 2: #define EXTCONF_H
+ 3: #define HAVE_RB_EXT_RACTOR_SAFE 1
+ 4: #define HAVE__RB_FIBER_TRANSFER 1
+ 5: #define HAVE_SYS_EVENT_H 1
+ 6: #define HAVE_SYS_WAIT_H 1
+ 7: #define HAVE_RB_IO_DESCRIPTOR 1
+ 8: #define HAVE__RB_PROCESS_STATUS_WAIT 1
+ 9: #define HAVE_RB_FIBER_CURRENT 1
+10: #define HAVE__RB_FIBER_RAISE 1
+11: #define HAVE_RUBY_IO_BUFFER_H 1
+12: #endif
+/* end */
+

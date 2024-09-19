@@ -1,0 +1,23 @@
+current directory: /Users/jasonjames/repositories/jas0nmjames/jas0nmjames.github.io/vendor/bundle/ruby/3.3.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+/Users/jasonjames/.rubies/ruby-3.3.5/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/jasonjames/repositories/jas0nmjames/jas0nmjames.github.io/vendor/bundle/ruby/3.3.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20240919-43600-b8kn2w sitelibdir\=./.gem.20240919-43600-b8kn2w clean
+
+current directory: /Users/jasonjames/repositories/jas0nmjames/jas0nmjames.github.io/vendor/bundle/ruby/3.3.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20240919-43600-b8kn2w sitelibdir\=./.gem.20240919-43600-b8kn2w
+compiling ruby_http_parser.c
+ruby_http_parser.c:365:17: warning: comparison of integers of different signs: 'size_t' (aka 'unsigned long') and 'long' [-Wsign-compare]
+  365 |     if (nparsed < len)
+      |         ~~~~~~~ ^ ~~~
+1 warning generated.
+compiling ryah_http_parser.c
+linking shared-object ruby_http_parser.bundle
+
+current directory: /Users/jasonjames/repositories/jas0nmjames/jas0nmjames.github.io/vendor/bundle/ruby/3.3.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20240919-43600-b8kn2w sitelibdir\=./.gem.20240919-43600-b8kn2w install
+/usr/bin/install -c -m 0755 ruby_http_parser.bundle ./.gem.20240919-43600-b8kn2w
+
+current directory: /Users/jasonjames/repositories/jas0nmjames/jas0nmjames.github.io/vendor/bundle/ruby/3.3.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20240919-43600-b8kn2w sitelibdir\=./.gem.20240919-43600-b8kn2w clean
